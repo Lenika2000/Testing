@@ -1,6 +1,6 @@
 package AlgorithmTest;
 
-import Algorithm.Graph;
+import algorithm.Graph;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,4 +1,4 @@
-package Function;
+package function;
 
 public class FunctionSin {
     public static double sin(double val) {

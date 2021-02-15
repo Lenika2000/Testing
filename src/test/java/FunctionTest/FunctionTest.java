@@ -1,6 +1,6 @@
 package FunctionTest;
 
-import Function.FunctionSin;
+import function.FunctionSin;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
