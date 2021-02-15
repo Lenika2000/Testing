@@ -26,14 +26,14 @@ public class Graph {
         return visitedVertices;
     }
 
-    public void DFS(int vertex) {
+    public void applyDFS(int vertex) {
         visited[vertex] = true;
         visitedVertices.add(vertex);
         System.out.print(vertex + " ");
 
         for (int next : adjLists.get(vertex)){
             if (!visited[next]){
-                DFS(next);
+                applyDFS(next);
             }
         }
     }
