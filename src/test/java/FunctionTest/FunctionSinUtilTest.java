@@ -1,6 +1,6 @@
 package FunctionTest;
 
-import function.FunctionSin;
+import function.FunctionSinUtil;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FunctionTest extends Assert {
+public class FunctionSinUtilTest extends Assert {
     private HashMap<Double, Double> arrayTestValues = new HashMap<Double, Double>();
     private HashMap<Double, Double> arrayWrongTestValues = new HashMap<Double, Double>();
     private static final double DELTA = 0.001;
@@ -63,12 +63,12 @@ public class FunctionTest extends Assert {
         for (Map.Entry entry : arrayTestValues.entrySet()) {
             expected = ((Double) entry.getKey()).doubleValue();
 
-            actual = FunctionSin.sin(((Double) entry.getValue()).doubleValue());
+            actual = FunctionSinUtil.sin(((Double) entry.getValue()).doubleValue());
             assertEquals(expected, actual, DELTA);
         }
         for (Map.Entry entry : arrayWrongTestValues.entrySet()) {
             expected = ((Double) entry.getKey()).doubleValue();
-            actual = FunctionSin.sin(((Double) entry.getValue()).doubleValue());
+            actual = FunctionSinUtil.sin(((Double) entry.getValue()).doubleValue());
             assertNotEquals(expected, actual, DELTA);
         }
     }
