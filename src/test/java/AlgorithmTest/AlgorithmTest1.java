@@ -1,6 +1,6 @@
 package AlgorithmTest;
 
-import Algorithm.Graph;
+import algorithm.Graph;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -57,56 +57,56 @@ public class AlgorithmTest1 extends Assert {
     @Test
     public void testStartFromFirstVertex() {
         int[] arrayTestValues = { 0, 1, 2, 5, 3, 7, 4, 6 };
-        graph.DFS(0);
+        graph.applyDFS(0);
         checkArrays(arrayTestValues);
     }
 
     @Test
     public void testStartFromSecondVertex() {
         int[] arrayTestValues = { 1, 0, 2, 5, 3, 7, 4, 6 };
-        graph.DFS(1);
+        graph.applyDFS(1);
         checkArrays(arrayTestValues);
     }
 
     @Test
     public void testStartFromThirdVertex() {
         int[] arrayTestValues = { 2, 0, 1, 3, 7, 4, 6, 5 };
-        graph.DFS(2);
+        graph.applyDFS(2);
         checkArrays(arrayTestValues);
     }
 
     @Test
     public void testStartFromFourthVertex() {
         int[] arrayTestValues = { 3, 0, 1, 2, 5, 7, 4, 6 };
-        graph.DFS(3);
+        graph.applyDFS(3);
         checkArrays(arrayTestValues);
     }
 
     @Test
     public void testStartFromFifthVertex() {
         int[] arrayTestValues = { 4, 7, 3, 0, 1, 2, 5, 6 };
-        graph.DFS(4);
+        graph.applyDFS(4);
         checkArrays(arrayTestValues);
     }
 
     @Test
     public void testStartFromSixthVertex() {
         int[] arrayTestValues = { 5, 2, 0, 1, 3, 7, 4, 6 };
-        graph.DFS(5);
+        graph.applyDFS(5);
         checkArrays(arrayTestValues);
     }
 
     @Test
     public void testStartFromSeventhVertex() {
         int[] arrayTestValues = { 6, 7, 3, 0, 1, 2, 5, 4};
-        graph.DFS(6);
+        graph.applyDFS(6);
         checkArrays(arrayTestValues);
     }
 
     @Test
     public void testStartFromEighthVertex() {
         int[] arrayTestValues = { 7, 3, 0, 1, 2, 5, 4, 6 };
-        graph.DFS(7);
+        graph.applyDFS(7);
         checkArrays(arrayTestValues);
     }
 

@@ -1,39 +1,39 @@
-package Algorithm;
+package algorithm;
 import java.util.*;
 
 public class Graph {
-    private LinkedList<Integer> adjLists[];
-    private ArrayList<Integer> visitedVertices = new ArrayList<Integer>();
-    private boolean visited[];
+    private final ArrayList<LinkedList<Integer>> adjLists;
+    private final ArrayList<Integer> visitedVertices = new ArrayList<>();
+    private final boolean[] visited;
 
     public Graph(int vertices) {
-        adjLists = new LinkedList[vertices];
+        adjLists = new ArrayList<>();
         visited = new boolean[vertices];
 
         for (int i = 0; i < vertices; i++)
-            adjLists[i] = new LinkedList<Integer>();
+            adjLists.add(i, new LinkedList<Integer>());
     }
 
     public void addEdge(int src, int dest) {
-        adjLists[src].add(dest);
+        adjLists.get(src).add(dest);
     }
 
     public LinkedList<Integer> getEdges(int src) {
-        return adjLists[src];
+        return adjLists.get(src);
     }
 
     public ArrayList<Integer> getVisitedVertices() {
         return visitedVertices;
     }
 
-    public void DFS(int vertex) {
+    public void applyDFS(int vertex) {
         visited[vertex] = true;
         visitedVertices.add(vertex);
         System.out.print(vertex + " ");
 
-        for (int next : adjLists[vertex]){
+        for (int next : adjLists.get(vertex)){
             if (!visited[next]){
-                DFS(next);
+                applyDFS(next);
             }
         }
     }
