@@ -29,8 +29,7 @@ public class Graph {
     public void applyDFS(int vertex) {
         visited[vertex] = true;
         visitedVertices.add(vertex);
-        System.out.print(vertex + " ");
-
+//        System.out.print(vertex + " ");
         for (int next : adjLists.get(vertex)){
             if (!visited[next]){
                 applyDFS(next);

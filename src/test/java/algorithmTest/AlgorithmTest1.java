@@ -1,4 +1,4 @@
-package AlgorithmTest;
+package algorithmTest;
 
 import algorithm.Graph;
 import org.junit.Assert;
