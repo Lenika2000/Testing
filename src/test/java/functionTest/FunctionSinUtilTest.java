@@ -9,8 +9,10 @@ import org.junit.Test;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Double.NaN;
+
 public class FunctionSinUtilTest extends Assert {
-    private HashMap<Double, Double> arrayTestValues = new HashMap<Double, Double>();
+    private HashMap<Double, Double> arrayTestValues = new HashMap<>();
     private static final double DELTA = 0.01;
 
     @Before
@@ -43,13 +45,13 @@ public class FunctionSinUtilTest extends Assert {
         arrayTestValues.put(Math.PI, 0d);
 
         //тестирование NaN, Infinity
-        arrayTestValues.put(Double.NaN, Double.NaN);
-        arrayTestValues.put(Double.POSITIVE_INFINITY, Double.NaN);
-        arrayTestValues.put(Double.NEGATIVE_INFINITY, Double.NaN);
+        arrayTestValues.put(NaN, NaN);
+        arrayTestValues.put(Double.POSITIVE_INFINITY, NaN);
+        arrayTestValues.put(Double.NEGATIVE_INFINITY, NaN);
 
         //тестовые значения вне границы покрытия
-        arrayTestValues.put(7*Math.PI / 6, -0.5);
-        arrayTestValues.put(-7*Math.PI / 6, 0.5);
+        arrayTestValues.put(7*Math.PI / 6, NaN);
+        arrayTestValues.put(-7*Math.PI / 6, NaN);
 
     }
 
@@ -61,11 +63,11 @@ public class FunctionSinUtilTest extends Assert {
     @Test
     public void testSin() {
         double expected, actual;
-        for (Map.Entry entry : arrayTestValues.entrySet()) {
-            expected = ((Double) entry.getValue()).doubleValue();
+        for (Map.Entry<Double, Double> entry : arrayTestValues.entrySet()) {
+            expected = entry.getValue();
 
-            actual = FunctionSinUtil.sin(((Double) entry.getKey()).doubleValue());
-            System.out.println("x = " +  ((Double) entry.getKey()).doubleValue() + " actual = " + actual
+            actual = FunctionSinUtil.sin(entry.getKey());
+            System.out.println("x = " + entry.getKey() + " actual = " + actual
                     + " expected = " + expected);
             assertEquals(expected, actual, DELTA);
         }

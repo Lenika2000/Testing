@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public class Environment {
     private Ford ford;
     private Artur artur;
-    private ArrayList<Thing> things = new ArrayList<Thing>();
+    private ArrayList<Thing> things = new ArrayList<>();
     private boolean isEmpty = true;
-    private boolean hasSimpleThing = false;
+    private boolean isThereSimpleThing = false;
 
     public Environment() {
         initEnvironment();
@@ -21,45 +21,41 @@ public class Environment {
         return artur;
     }
 
-    public boolean isHasSimpleThing() {
-        return hasSimpleThing;
+    public boolean isThereSimpleThing() {
+        return isThereSimpleThing;
     }
 
     public void initEnvironment() {
         if (isEmpty) {
             ford = new Ford();
             artur = new Artur();
-            setThings();
+            addStoryThings();
             isEmpty = false;
         }
-        ford.hasBottleHold();
-        artur.getWatchAction();
-        hasSimpleThing();
-    }
-
-    private void hasSimpleThing() {
-        if (!hasSimpleThing) {
+        ford.tryTakeBottle();
+        artur.doWatchAction();
+        if (!isThereSimpleThing) {
             artur.setConfident(false);
-            getThings();
-            ford.getBirthPlace();
-            ford.getOffer();
-            getSimpleThing();
+            printThings();
+            ford.printBirthPlace();
+            ford.doOffer();
+            printSimpleThing();
         }
     }
 
-    private void setThings() {
+    private void addStoryThings() {
         Thing underWears = new Thing("нижним бельем ", "дентрасси");
         Thing mattresses = new Thing("матрацами ", " скворншельскими ");
         things.add(underWears);
         things.add(mattresses);
     }
 
-    private void getThings() {
+    private void printThings() {
         System.out.println(things.get(0).getName() + things.get(0).getOwner() +
                 "," + things.get(1).getOwner() + things.get(1).getName());
     }
 
-    private void getSimpleThing() {
+    private void printSimpleThing() {
         System.out.print(" он увидел, к примеру, пакет кукурузных хлопьев");
     }
 

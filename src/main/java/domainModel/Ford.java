@@ -7,7 +7,7 @@ public class Ford {
     // держит ли флакон с рыбкой
     private boolean hasHold = false;
 
-    public void hasBottleHold() throws IllegalStateException {
+    public void tryTakeBottle() throws IllegalStateException {
         if (!hasHold) {
             takeBottle();
         } else {
@@ -21,7 +21,7 @@ public class Ford {
         bottle = new Bottle();
     }
 
-    public void getBirthPlace() {
+    public void printBirthPlace() {
         System.out.print("и человеком с " + Birthplace.getRussianVersionBirthplaces(birthplace) + "," );
     }
 
@@ -29,7 +29,7 @@ public class Ford {
         return birthplace;
     }
 
-    public void getOffer() throws IllegalStateException{
+    public void doOffer() throws IllegalStateException{
         if (hasHold) {
             System.out.print(" держащим маленькую рыбку и предлагающим засунуть ее в ухо");
         } else {
@@ -37,7 +37,7 @@ public class Ford {
         }
     }
 
-    public void setHasHold(boolean hasHold) {
+    public void setIsHoldingBottle(boolean hasHold) {
         this.hasHold = hasHold;
     }
 

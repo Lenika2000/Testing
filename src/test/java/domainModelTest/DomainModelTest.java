@@ -31,24 +31,24 @@ public class DomainModelTest extends Assert {
     }
 
     @Test
-    public void isFordBetelgeusing() {
+    public void isFordBetelgeusian() {
         assertEquals(environment.getFord().getBirthplace(), Birthplace.BETELGEUSE);
     }
 
     @Test(expected = IllegalStateException.class)
-    public void testHasHoldBottle() throws IllegalStateException {
-        environment.getFord().hasBottleHold();
+    public void cannotTakeBottleIfAlreadyHoldingAnotherOne() throws IllegalStateException {
+        environment.getFord().tryTakeBottle();
     }
 
     // если Форд не держит бутылку с рыбкой, то он не может предложить ее засунуть в ухо Артуру
     @Test(expected = IllegalStateException.class)
     public void testCanFordMakeAnOffer() throws IllegalStateException {
-        environment.getFord().setHasHold(false);
-        environment.getFord().getOffer();
+        environment.getFord().setIsHoldingBottle(false);
+        environment.getFord().doOffer();
     }
 
     @Test
-    public void isArturNonConfidentAndEnvironmentHasNotSimpleThing() {
-        assertTrue(!(environment.getArtur().isConfident()) && (!environment.isHasSimpleThing()));
+    public void arthurIsNotConfidentIfThereIsNoSimpleThing() {
+        assertTrue(!(environment.getArtur().isConfident()) && (!environment.isThereSimpleThing()));
     }
 }

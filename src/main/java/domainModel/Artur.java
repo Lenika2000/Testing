@@ -17,7 +17,7 @@ public class Artur {
         }
     }
 
-    public void getWatchAction(){
+    public void doWatchAction(){
         System.out.println(" Артур смотрел на него, моргая глазами.");
     }
 
